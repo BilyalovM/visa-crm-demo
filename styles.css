@@ -1,90 +1,66 @@
 /* Visa CRM — интерфейс в духе привычных CRM: боковое меню, белые карточки, понятные метки этапов.
    Десктоп: меню слева + рабочая область. Планшет: узкое меню-иконки. Телефон: нижние вкладки, один экран за раз. */
 
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url("fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url("fonts/inter-cyrillic-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url("fonts/inter-cyrillic-ext-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
 
 :root {
-  --bg: #fafafa;
+  --bg: #eef2f4;
   --surface: #ffffff;
-  --surface-2: #fafafa;
-  --hover: #f4f4f5;
-  --border: #e7e7ea;
-  --border-strong: #d4d4d8;
-  --text: #18181b;
-  --muted: #5f5f69;
-  --faint: #71717a;
-  --primary: #18181b;
-  --primary-hover: #3f3f46;
-  --primary-soft: #f4f4f5;
-  --primary-text: #18181b;
+  --surface-2: #fbfbfb;
+  --hover: #f1f4f6;
+  --border: #e6e7e9;
+  --border-strong: #d5d7db;
+  --text: #333333;
+  --muted: #525c69;
+  --faint: #6a737f;
+  --primary: #0075ff;
+  --primary-hover: #1f86ff;
+  --primary-soft: #e6f4ff;
+  --primary-text: #0154c8;
   --on-primary: #ffffff;
-  --danger: #b42318;
-  --danger-soft: #fef3f2;
-  --warn: #9a4a00;
-  --warn-soft: #fdf6ec;
-  --ok: #146c3c;
-  --ok-soft: #eef7f1;
-  --info: #18181b;
-  --info-soft: #f4f4f5;
-  --teal: #18181b;
-  --teal-soft: #f4f4f5;
-  --violet: #18181b;
-  --violet-soft: #f4f4f5;
-  --chat-bg: #f4f4f5;
+  --danger: #c21b16;
+  --danger-soft: #ffe8e8;
+  --warn: #9f6a00;
+  --warn-soft: #fff4d6;
+  --ok: #0a7a43;
+  --ok-soft: #dcfbec;
+  --info: #0154c8;
+  --info-soft: #e6f4ff;
+  --teal: #0a7a6c;
+  --teal-soft: #dcf7f2;
+  --violet: #6b4bc4;
+  --violet-soft: #f1edfc;
+  --chat-bg: #e7edf0;
   --bubble-in: #ffffff;
-  --bubble-out: #e9e9ec;
-  --overlay: rgba(9, 9, 11, 0.45);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.14);
+  --bubble-out: #e3f6cf;
+  --overlay: rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 2px rgba(82, 92, 105, 0.08);
+  --shadow: 0 2px 8px rgba(82, 92, 105, 0.12);
+  --shadow-lg: 0 10px 36px rgba(0, 0, 0, 0.2);
 
   /* боковое меню: тёмное в обеих темах — как в привычных CRM */
-  --side-bg: #f4f4f5;
-  --side-text: #52525b;
-  --side-strong: #18181b;
-  --side-hover: rgba(0, 0, 0, 0.04);
-  --side-active: #ffffff;
-  --side-border: #e4e4e7;
+  --side-bg: transparent;
+  --side-text: rgba(255, 255, 255, 0.85);
+  --side-strong: #ffffff;
+  --side-hover: rgba(255, 255, 255, 0.12);
+  --side-active: rgba(255, 255, 255, 0.24);
+  --side-border: rgba(255, 255, 255, 0.2);
 
   /* этапы сделки */
-  --st-new: #71717a;
-  --st-docs_collecting: #3f6fb5;
-  --st-docs_ready: #2f7f8f;
-  --st-account_ready: #6a5fb0;
-  --st-booking: #8a5a9e;
-  --st-booked: #2f7d4f;
-  --st-submitted: #3a7a70;
-  --st-done: #2f7d4f;
-  --st-cancelled: #a1a1aa;
+  --st-new: #39a8ef;
+  --st-docs_collecting: #2fc6f6;
+  --st-docs_ready: #55d0e0;
+  --st-account_ready: #47e4c2;
+  --st-booking: #ffa900;
+  --st-booked: #9dcf00;
+  --st-submitted: #00b4ac;
+  --st-done: #7bd500;
+  --st-cancelled: #ff5752;
   --st-mix: #ffffff;
 
-  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --radius: 10px;
-  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-sm: 8px;
   --sidebar-w: 240px;
   --gutter-l: max(16px, env(safe-area-inset-left, 0px));
   --gutter-r: max(16px, env(safe-area-inset-right, 0px));
@@ -92,7 +68,6 @@
   font-family: var(--font);
   font-size: 14px;
   line-height: 1.45;
-  font-feature-settings: "cv11", "ss01";
   color: var(--text);
   color-scheme: light;
   -webkit-text-size-adjust: 100%;
@@ -101,101 +76,101 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f0f11;
-    --surface: #17171a;
-    --surface-2: #1b1b1f;
-    --hover: #222226;
-    --border: #2a2a2f;
-    --border-strong: #3a3a41;
-    --text: #ededef;
-    --muted: #a1a1aa;
-    --faint: #8b8b94;
-    --primary: #ededef;
-    --primary-hover: #d4d4d8;
-    --primary-soft: #232327;
-    --primary-text: #ededef;
-    --on-primary: #18181b;
-    --danger: #f97066;
-    --danger-soft: #2c1715;
-    --warn: #f0b35b;
-    --warn-soft: #2a2112;
-    --ok: #6ccf96;
-    --ok-soft: #14261b;
-    --info: #ededef;
-    --info-soft: #232327;
-    --teal: #ededef;
-    --teal-soft: #232327;
-    --violet: #ededef;
-    --violet-soft: #232327;
-    --chat-bg: #0f0f11;
-    --bubble-in: #1f1f23;
-    --bubble-out: #2a2a30;
+    --bg: #171717;
+    --surface: #262626;
+    --surface-2: #1f1f1f;
+    --hover: #2f2f2f;
+    --border: #373838;
+    --border-strong: #555657;
+    --text: #f8f8f8;
+    --muted: #cacbcc;
+    --faint: #a7a9ab;
+    --primary: #1587fa;
+    --primary-hover: #3b9bfb;
+    --primary-soft: #0e294b;
+    --primary-text: #6aa6f0;
+    --on-primary: #ffffff;
+    --danger: #ff7b74;
+    --danger-soft: #300e0c;
+    --warn: #f2a100;
+    --warn-soft: #302000;
+    --ok: #3fd38a;
+    --ok-soft: #052717;
+    --info: #6aa6f0;
+    --info-soft: #0e294b;
+    --teal: #4fd1c0;
+    --teal-soft: #0d2b28;
+    --violet: #b59cff;
+    --violet-soft: #261f40;
+    --chat-bg: #1b1b1b;
+    --bubble-in: #2b2b2b;
+    --bubble-out: #1f3a1a;
     --overlay: rgba(0, 0, 0, 0.62);
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 6px 16px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.55);
-    --side-bg: #131316;
-    --side-border: #26262b;
-    --st-new: #a1a1aa;
-    --st-docs_collecting: #7fa6e0;
-    --st-docs_ready: #6cbccc;
-    --st-account_ready: #a49be0;
-    --st-booking: #c29ad3;
-    --st-booked: #6ccf96;
-    --st-submitted: #74c4b8;
-    --st-done: #6ccf96;
-    --st-cancelled: #71717a;
-    --st-mix: #17171a;
+    --side-bg: transparent;
+    --side-border: rgba(255, 255, 255, 0.12);
+    --st-new: #39a8ef;
+    --st-docs_collecting: #2fc6f6;
+    --st-docs_ready: #55d0e0;
+    --st-account_ready: #47e4c2;
+    --st-booking: #ffa900;
+    --st-booked: #9dcf00;
+    --st-submitted: #00b4ac;
+    --st-done: #7bd500;
+    --st-cancelled: #ff5752;
+    --st-mix: #262626;
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #0f0f11;
-  --surface: #17171a;
-  --surface-2: #1b1b1f;
-  --hover: #222226;
-  --border: #2a2a2f;
-  --border-strong: #3a3a41;
-  --text: #ededef;
-  --muted: #a1a1aa;
-  --faint: #8b8b94;
-  --primary: #ededef;
-  --primary-hover: #d4d4d8;
-  --primary-soft: #232327;
-  --primary-text: #ededef;
-  --on-primary: #18181b;
-  --danger: #f97066;
-  --danger-soft: #2c1715;
-  --warn: #f0b35b;
-  --warn-soft: #2a2112;
-  --ok: #6ccf96;
-  --ok-soft: #14261b;
-  --info: #ededef;
-  --info-soft: #232327;
-  --teal: #ededef;
-  --teal-soft: #232327;
-  --violet: #ededef;
-  --violet-soft: #232327;
-  --chat-bg: #0f0f11;
-  --bubble-in: #1f1f23;
-  --bubble-out: #2a2a30;
+  --bg: #171717;
+  --surface: #262626;
+  --surface-2: #1f1f1f;
+  --hover: #2f2f2f;
+  --border: #373838;
+  --border-strong: #555657;
+  --text: #f8f8f8;
+  --muted: #cacbcc;
+  --faint: #a7a9ab;
+  --primary: #1587fa;
+  --primary-hover: #3b9bfb;
+  --primary-soft: #0e294b;
+  --primary-text: #6aa6f0;
+  --on-primary: #ffffff;
+  --danger: #ff7b74;
+  --danger-soft: #300e0c;
+  --warn: #f2a100;
+  --warn-soft: #302000;
+  --ok: #3fd38a;
+  --ok-soft: #052717;
+  --info: #6aa6f0;
+  --info-soft: #0e294b;
+  --teal: #4fd1c0;
+  --teal-soft: #0d2b28;
+  --violet: #b59cff;
+  --violet-soft: #261f40;
+  --chat-bg: #1b1b1b;
+  --bubble-in: #2b2b2b;
+  --bubble-out: #1f3a1a;
   --overlay: rgba(0, 0, 0, 0.62);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 6px 16px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.55);
-  --side-bg: #131316;
-  --side-border: #26262b;
-  --st-new: #a1a1aa;
-  --st-docs_collecting: #7fa6e0;
-  --st-docs_ready: #6cbccc;
-  --st-account_ready: #a49be0;
-  --st-booking: #c29ad3;
-  --st-booked: #6ccf96;
-  --st-submitted: #74c4b8;
-  --st-done: #6ccf96;
-  --st-cancelled: #71717a;
-  --st-mix: #17171a;
+  --side-bg: transparent;
+  --side-border: rgba(255, 255, 255, 0.12);
+  --st-new: #39a8ef;
+  --st-docs_collecting: #2fc6f6;
+  --st-docs_ready: #55d0e0;
+  --st-account_ready: #47e4c2;
+  --st-booking: #ffa900;
+  --st-booked: #9dcf00;
+  --st-submitted: #00b4ac;
+  --st-done: #7bd500;
+  --st-cancelled: #ff5752;
+  --st-mix: #262626;
   color-scheme: dark;
 }
 
@@ -907,76 +882,177 @@ button.deal-chip:hover:not(:disabled) { background: color-mix(in srgb, var(--st)
   .board { padding: 4px 16px 16px; }
 }
 
-/* ---------- нейтральная палитра: цвет только там, где он что-то значит ---------- */
-.avatar, [class*="hue-"] { --av-bg: var(--hover); --av-fg: var(--muted); }
-.avatar { border: 1px solid var(--border); font-weight: 600; }
-.logo { background: var(--primary); color: var(--on-primary); box-shadow: none; border-radius: 7px; }
-.sidebar { border-right: 1px solid var(--side-border); }
-.side-item.active { box-shadow: 0 0 0 1px var(--side-border), var(--shadow-sm); }
-.side-item.active::before { display: none; }
-.badge { background: var(--primary); color: var(--on-primary); }
-button.primary { box-shadow: none; }
-button.link { text-decoration: underline; text-underline-offset: 3px; }
-button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline-color: var(--text); }
-input:focus, select:focus, textarea:focus { border-color: var(--text); box-shadow: 0 0 0 3px color-mix(in srgb, var(--text) 10%, transparent); }
-.search:focus-within { border-color: var(--text); box-shadow: 0 0 0 3px color-mix(in srgb, var(--text) 10%, transparent); }
-.demo-banner { background: var(--hover); color: var(--muted); border-bottom: 1px solid var(--border); }
+/* ===================================================================
+   Стиль Битрикс24 Air: цвета и скругления из открытых токенов @bitrix24/b24ui (MIT).
+   Обои вокруг, меню на обоях, рабочая область — светлый лист с белыми блоками.
+   =================================================================== */
+:root {
+  --wallpaper: radial-gradient(120% 90% at 0% 0%, #2a7de1 0%, rgba(42, 125, 225, 0) 60%), linear-gradient(150deg, #0a4fa8 0%, #1374d6 45%, #3aa2ec 100%);
+  --counter: #ff5752;
+  --link: #0154c8;
+  --success: #1bce7b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --wallpaper: linear-gradient(150deg, #071426 0%, #0b2240 55%, #0e2f57 100%); --link: #6aa6f0; --side-text: rgba(255, 255, 255, 0.78); --side-strong: #ffffff; --side-hover: rgba(255, 255, 255, 0.08); --side-active: rgba(255, 255, 255, 0.16); }
+  :root:not([data-theme="light"]) .avatar { --av-bg: #33404c; --av-fg: #d6dde3; }
+}
+:root[data-theme="dark"] { --wallpaper: linear-gradient(150deg, #071426 0%, #0b2240 55%, #0e2f57 100%); --link: #6aa6f0; --side-text: rgba(255, 255, 255, 0.78); --side-strong: #ffffff; --side-hover: rgba(255, 255, 255, 0.08); --side-active: rgba(255, 255, 255, 0.16); }
+:root[data-theme="dark"] .avatar { --av-bg: #33404c; --av-fg: #d6dde3; }
 
-/* баннеры: тонкая полоса без заливки, цвет — у точки */
-.banner { background: var(--surface) !important; color: var(--text) !important; font-size: 13px; padding-top: 8px; padding-bottom: 8px; }
+#root { background: var(--wallpaper); }
+.sidebar { background: transparent; padding-top: 14px; }
+.sidebar .brand { color: #fff; font-size: 17px; }
+.logo { background: #fff; color: #0a5fc4; border-radius: 8px; box-shadow: none; }
+.side-item { border-radius: 10px; min-height: 40px; }
+.side-item.active::before { display: none; }
+.side-user .avatar { border: 2px solid rgba(255, 255, 255, 0.5); }
+.app-main { margin: 8px 8px 8px 0; border-radius: 14px; overflow: hidden; background: var(--bg); box-shadow: 0 6px 24px rgba(0, 25, 60, 0.22); }
+.demo-banner { background: rgba(0, 0, 0, 0.22); color: #eaf4ff; border: none; }
+.banner { background: var(--surface) !important; color: var(--text) !important; border-bottom: 1px solid var(--border); }
 .banner .ic { color: var(--warn); }
 .banner.danger .ic, .banner.danger strong { color: var(--danger) !important; }
 
-/* этапы: нейтральная плашка + цветная точка */
-.deal-chip, .status-select, .stage-tab.active { background: var(--hover) !important; color: var(--text) !important; border-color: var(--border) !important; }
-.deal-chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--st); flex: none; }
-.deal-chip .status-dot { display: none; }
-.deal-chip.outcome-approved::before { background: var(--ok); }
-.deal-chip.outcome-refused::before { background: var(--danger); }
-.status-select { border: 1px solid var(--border) !important; border-radius: var(--radius-sm); }
-.stage-tab.active .stage-count { background: var(--text); color: var(--surface); }
-.stage-tab, .chip { border-radius: var(--radius-sm); }
-.chip.active { background: var(--text); color: var(--surface); }
-.board-col { background: var(--hover); border-color: transparent; }
-.board-col-head .status-dot { box-shadow: none; width: 8px; height: 8px; }
-.deal-card { border-radius: 8px; }
-.deal-list .deal-card, .app-card { border-left-width: 1px; }
-.app-card { border-top: 2px solid var(--st); }
+/* аватары: серые, как у пользователей без фото */
+.avatar { --av-bg: #e2e9ef; --av-fg: #525c69; }
+.hue-0, .hue-1, .hue-2, .hue-3, .hue-4, .hue-5 { --av-bg: #e2e9ef; --av-fg: #525c69; }
 
-/* метки и плашки — серые, цвет только у важного текста */
-.tag, .pill, .meta-chip, .outcome-badge, .portal-badge, .tl-tag { border-radius: 5px; background: var(--hover) !important; }
-.tag { color: var(--muted) !important; }
-.meta-chip.ok { color: var(--ok); }
-.meta-chip.warn, .pill.warn { color: var(--warn); }
-.pill.ok { color: var(--ok); }
-.outcome-badge.outcome-approved { color: var(--ok) !important; }
-.outcome-badge.outcome-refused { color: var(--danger) !important; }
-.portal-badge { color: var(--text); }
-.outcome-line { background: transparent !important; border: 1px solid var(--border); }
-.lock-line { background: transparent; border: 1px solid var(--border); }
-.attach-icon { background: var(--hover); color: var(--muted); border-radius: 6px; }
-.chip-btn { color: var(--text); border-radius: var(--radius-sm); }
-.tl-icon, .tl-status .tl-icon, .tl-secret .tl-icon, .tl-contact .tl-icon { background: var(--surface); border: 1px solid var(--border); color: var(--muted); }
-.placeholder-icon { background: var(--hover); color: var(--muted); border-radius: 12px; }
+/* кнопки, поля, ссылки */
+button { border-radius: var(--radius-sm); font-weight: 600; }
+button.primary { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: none; }
+button.primary:hover:not(:disabled) { background: var(--primary-hover); border-color: var(--primary-hover); }
+button:not(.primary):not(.ghost):not(.link):not(.icon-btn):not(.side-item):not(.side-user):not(.tab-item) { border-color: var(--border-strong); }
+button.ghost { color: var(--link); }
+button.link { color: var(--link); text-decoration: none; border-bottom: 1px dashed color-mix(in srgb, var(--link) 50%, transparent); border-radius: 0; }
+input, select, textarea { border-color: var(--border-strong); }
+input:focus, select:focus, textarea:focus, .search:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent); }
+.badge, .dot-count { background: var(--counter); color: #fff; }
+.segmented { background: var(--hover); }
+.segmented button.active { color: var(--link); }
+.chip.active { background: var(--primary-soft); color: var(--link); }
+.panel, .card, .table-card, .applicant { border: none; box-shadow: var(--shadow-sm); }
 
-/* главная: без цветных кружков */
-.kpi-icon, .t-icon { background: transparent !important; color: var(--faint) !important; border: 1px solid var(--border); border-radius: 8px; }
-.t-count { background: var(--hover) !important; color: var(--muted) !important; border-radius: 5px; }
-.tone-warn .kpi-num { color: var(--warn); }
-.kpi.is-zero .kpi-num { color: var(--faint) !important; }
-.day-block.is-today { background: var(--text); color: var(--surface); }
-.day-block.is-today .day-mon, .day-block.is-today .day-rel { color: var(--surface); }
-.t-empty .ic { color: var(--faint); }
-.cc { background: var(--surface); }
-
-/* тёмная тема: меню и аватары в нейтральной гамме */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --side-text: #a1a1aa; --side-strong: #ededef; --side-hover: rgba(255, 255, 255, 0.04); --side-active: #232327; --side-border: #26262b; }
-  :root:not([data-theme="light"]) .avatar { --av-bg: var(--hover); --av-fg: var(--muted); }
+/* ---------- Сделки: стрелки стадий и карточки ---------- */
+.board { gap: 10px; }
+.board-col { background: transparent; border: none; }
+.board-col-head {
+  margin: 0 0 10px; padding: 0 22px 0 14px; min-height: 40px;
+  background: var(--st); color: #fff; font-weight: 700; font-size: 13px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 10px 50%);
+  border-radius: 6px 0 0 6px;
 }
-:root[data-theme="dark"] { --side-text: #a1a1aa; --side-strong: #ededef; --side-hover: rgba(255, 255, 255, 0.04); --side-active: #232327; --side-border: #26262b; }
-:root[data-theme="dark"] .avatar { --av-bg: var(--hover); --av-fg: var(--muted); }
-.deal-wrap.focus { box-shadow: 0 0 0 1px var(--border-strong), var(--shadow); }
+.board-col:first-child .board-col-head { clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%); }
+.board-col-head .status-dot { display: none; }
+.board-col-head .count { background: rgba(255, 255, 255, 0.28); border: none; color: #fff; text-shadow: none; }
+.board-cards { padding: 0 0 12px; gap: 8px; }
+.board-empty { border: 1px dashed var(--border-strong); background: transparent; }
+.deal-card { border: none; border-radius: 10px; box-shadow: 0 1px 2px rgba(82, 92, 105, 0.12); }
+.deal-card:hover { box-shadow: 0 6px 16px rgba(82, 92, 105, 0.18); }
+.deal-card.is-stale { box-shadow: inset 3px 0 0 var(--st-booking), 0 1px 2px rgba(82, 92, 105, 0.12); }
+.deal-name { color: var(--link); font-weight: 600; }
+.deal-card:hover .deal-name { text-decoration: underline; text-underline-offset: 2px; }
+.meta-chip { border-radius: 6px; }
+.meta-chip.info { background: var(--counter); color: #fff; }
+.stage-tab { border-radius: 8px; }
+.stage-tab.active { background: var(--st); border-color: var(--st); color: #fff; }
+.stage-tab.active .stage-count { background: rgba(255, 255, 255, 0.3); color: #fff; }
+.deal-list .deal-card { border-left: none; box-shadow: inset 0 3px 0 var(--st), 0 1px 2px rgba(82, 92, 105, 0.12); }
+
+/* полоса стадий в карточке сделки */
+.stage-bar { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.stage-bar::-webkit-scrollbar { display: none; }
+.stage-step {
+  flex: 1 1 0; min-width: 26px; min-height: 30px; padding: 0 12px 0 14px;
+  border: none !important; border-radius: 0; background: var(--hover); color: var(--muted); font-size: 12px; font-weight: 600;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%, 8px 50%);
+}
+.stage-step:first-child { clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%); border-radius: 6px 0 0 6px; padding-left: 10px; }
+.stage-step:last-child { border-radius: 0 6px 6px 0; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 8px 50%); }
+.stage-step:hover:not(:disabled) { background: color-mix(in srgb, var(--st) 40%, var(--hover)); color: var(--text); }
+.stage-step.passed, .stage-step.current, .stage-step.passed:hover:not(:disabled), .stage-step.current:hover:not(:disabled) { background: var(--st); color: #fff; }
+.stage-step:not(.current) .stage-step-label { display: none; }
+.stage-step.current { flex: 0 0 auto; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); }
+.stage-step.outcome-refused { --st: #ff5752; }
+.stage-step.outcome-withdrawn { --st: #a8adb4; }
+.status-select { border-radius: var(--radius-sm); }
+.app-card { border: 1px solid var(--border); border-radius: var(--radius); }
+
+/* метки этапов в таблицах */
+.deal-chip { border-radius: 6px; background: color-mix(in srgb, var(--st) 16%, var(--st-mix)); color: var(--text); }
+.deal-chip .status-dot { background: var(--st); }
+.tag { border-radius: 6px; }
+
+/* ---------- Чаты: как в мессенджере CRM ---------- */
+.col-list { background: var(--surface); }
+.contact { border-radius: 10px; margin: 0 6px; width: calc(100% - 12px); min-height: 64px; }
+.contact.active { background: var(--primary); }
+.contact.active .contact-name, .contact.active .contact-sub, .contact.active .contact-time { color: #fff !important; }
+.contact.active .avatar { --av-bg: rgba(255, 255, 255, 0.25); --av-fg: #fff; border-color: transparent; }
+.contact .badge { background: var(--primary); }
+.contact.unread .contact-time { color: var(--link); }
+.messages { background: var(--chat-bg); }
+.msg { border-radius: 14px 14px 14px 4px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06); }
+.msg.outbound { border-radius: 14px 14px 4px 14px; }
+.tick-read { color: var(--success); }
+.day-sep span { background: rgba(255, 255, 255, 0.75); color: var(--muted); box-shadow: none; }
+.composer textarea { border-radius: 10px; background: var(--surface); }
+.send-btn { border-radius: 10px; background: var(--primary); }
+.attachment { background: var(--surface); border-color: var(--border); }
+.chip-btn { color: var(--link); }
+
+/* ---------- Файлы: цветные значки типов, как в Диске ---------- */
+.file-badge { flex: none; display: inline-grid; place-items: center; width: 28px; height: 34px; border-radius: 4px 9px 4px 4px; color: #fff; font-size: 8.5px; font-weight: 800; letter-spacing: .02em; position: relative; }
+.file-badge::after { content: ""; position: absolute; top: 0; right: 0; width: 9px; height: 9px; background: rgba(255, 255, 255, 0.45); border-radius: 0 9px 0 4px; }
+.fb-sm { width: 22px; height: 27px; font-size: 7px; }
+.fb-lg { width: 34px; height: 42px; font-size: 10px; }
+.fb-pdf { background: #f0371b; }
+.fb-img { background: #1bce7b; }
+.fb-doc { background: #0075ff; }
+.fb-xls { background: #10b769; }
+.fb-other { background: #a8adb4; }
+.doc-open { gap: 10px; border-radius: var(--radius-sm); }
+
+/* ---------- Главная ---------- */
+.kpi { border: none; box-shadow: var(--shadow-sm); }
+.kpi-icon, .t-icon { border-radius: 50%; }
+.tone-info { --tone: #ff5752; --tone-soft: #ffe8e8; }
+.tone-primary { --tone: #0075ff; --tone-soft: #e6f4ff; }
+.tone-ok { --tone: #0a7a43; --tone-soft: #dcfbec; }
+.tone-warn { --tone: #9f6a00; --tone-soft: #fff4d6; }
+.tone-teal { --tone: #0a7a6c; --tone-soft: #dcf7f2; }
+.tone-violet { --tone: #6b4bc4; --tone-soft: #f1edfc; }
+.t-title { color: var(--link); }
+.t-row:hover .t-title { text-decoration: underline; text-underline-offset: 2px; }
+.day-block.is-today { background: var(--primary); color: #fff; border-color: transparent; }
+.day-block.is-today .day-mon, .day-block.is-today .day-rel { color: #fff; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tone-info { --tone: #ff7b74; --tone-soft: #300e0c; }
+  :root:not([data-theme="light"]) .tone-primary { --tone: #6aa6f0; --tone-soft: #0e294b; }
+  :root:not([data-theme="light"]) .tone-ok { --tone: #3fd38a; --tone-soft: #052717; }
+  :root:not([data-theme="light"]) .tone-warn { --tone: #f2a100; --tone-soft: #302000; }
+  :root:not([data-theme="light"]) .tone-teal { --tone: #4fd1c0; --tone-soft: #0d2b28; }
+  :root:not([data-theme="light"]) .tone-violet { --tone: #b59cff; --tone-soft: #261f40; }
+  :root:not([data-theme="light"]) .day-sep span { background: rgba(255, 255, 255, 0.08); }
+}
+:root[data-theme="dark"] .tone-info { --tone: #ff7b74; --tone-soft: #300e0c; }
+:root[data-theme="dark"] .tone-primary { --tone: #6aa6f0; --tone-soft: #0e294b; }
+:root[data-theme="dark"] .tone-ok { --tone: #3fd38a; --tone-soft: #052717; }
+:root[data-theme="dark"] .tone-warn { --tone: #f2a100; --tone-soft: #302000; }
+:root[data-theme="dark"] .tone-teal { --tone: #4fd1c0; --tone-soft: #0d2b28; }
+:root[data-theme="dark"] .tone-violet { --tone: #b59cff; --tone-soft: #261f40; }
+:root[data-theme="dark"] .day-sep span { background: rgba(255, 255, 255, 0.08); }
+
+@media (max-width: 1179px) {
+  .side-item { width: 48px; }
+}
+@media (max-width: 760px) {
+  .app-main { margin: 0; border-radius: 0; box-shadow: none; }
+  .tabbar { background: var(--surface); }
+  .tab-item.active { color: var(--primary); }
+  .contact { margin: 0; width: 100%; border-radius: 0; }
+}
+body { background: var(--wallpaper); }
+.contact.active, .contact.active:hover:not(:disabled) { background: var(--primary); }
+.status-select { color: var(--text) !important; background-color: color-mix(in srgb, var(--st) 18%, var(--st-mix)) !important; border: 1px solid color-mix(in srgb, var(--st) 45%, transparent) !important; }
 
 /* demo */
 body { display: flex; flex-direction: column; }

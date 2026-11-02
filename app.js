@@ -1126,7 +1126,7 @@ function renderMessage(m) {
         h(
           "button",
           { class: "attach-open", onclick: () => previewFile(m.file.id, m.file.mime, m.file.original_name) },
-          h("span", { class: "attach-icon" }, icon("file", 20)),
+          fileBadge(m.file.mime, m.file.original_name, "lg"),
           h("span", { class: "attach-text" }, h("span", { class: "attach-name" }, m.file.original_name), h("span", { class: "attach-size" }, fmtSize(m.file.size))),
         ),
         h("button", { class: "chip-btn", onclick: () => attachDialog([m.file.id]) }, icon("folder", 14), "В папку"),
@@ -1395,6 +1395,14 @@ async function loadFolder() {
 
 const reloadFolder = debounce(loadFolder, 200);
 
+// Значок файла с подписью типа — как в файловых хранилищах CRM.
+function fileBadge(mime, name, size = "sm") {
+  const ext = (String(name).split(".").pop() || "").toLowerCase();
+  const kind = mime === "application/pdf" || ext === "pdf" ? "pdf" : String(mime).startsWith("image/") ? "img" : ["doc", "docx", "odt", "rtf"].includes(ext) ? "doc" : ["xls", "xlsx", "csv"].includes(ext) ? "xls" : "other";
+  const label = { pdf: "PDF", img: ext && ext.length <= 4 ? ext.toUpperCase() : "IMG", doc: "DOC", xls: "XLS", other: ext && ext.length <= 4 ? ext.toUpperCase() : "FILE" }[kind];
+  return h("span", { class: `file-badge fb-${kind} fb-${size}`, "aria-hidden": "true" }, label);
+}
+
 function renderDocs(docs, emptyText = "Документов нет") {
   if (!docs.length) return h("p", { class: "muted small empty-docs" }, emptyText);
   return h(
@@ -1407,7 +1415,7 @@ function renderDocs(docs, emptyText = "Документов нет") {
         h(
           "button",
           { class: "doc-open", onclick: () => previewFile(d.file_id, d.mime, d.original_name) },
-          icon("file", 16),
+          fileBadge(d.mime, d.original_name),
           h("span", { class: "doc-name" }, d.original_name),
           h("span", { class: `tag tag-${d.doc_type}` }, DOC_LABEL[d.doc_type]),
         ),
@@ -1461,6 +1469,34 @@ async function openPortal(app) {
     toast(`Заявка открыта для записи. Браузер не дал открыть вкладку — откройте ${lock.portal_url}`);
   }
   refreshFolders();
+}
+
+// Полоса стадий как в карточке сделки CRM: пройденные этапы закрашены, клик — перевод на этап.
+function stageBar(app, statusSel) {
+  if (app.status === "cancelled") return null;
+  const order = PIPELINE.map(([st]) => st).concat("done");
+  const cur = order.indexOf(app.status);
+  const go = (st) => {
+    if (st === app.status) return;
+    statusSel.value = st;
+    statusSel.dispatchEvent(new Event("change"));
+  };
+  return h(
+    "div",
+    { class: "stage-bar", role: "group", "aria-label": "Стадия сделки" },
+    order.map((st, i) =>
+      h(
+        "button",
+        {
+          class: `stage-step status-${st} ${i < cur ? "passed" : ""} ${i === cur ? "current" : ""} ${st === "done" && app.decision ? `outcome-${app.decision}` : ""}`,
+          title: STATUS_LABEL[st],
+          "aria-current": i === cur ? "step" : null,
+          onclick: () => go(st),
+        },
+        h("span", { class: "stage-step-label" }, st === "done" && app.decision ? DECISION_SHORT[app.decision] : STATUS_LABEL[st]),
+      ),
+    ),
+  );
 }
 
 function renderApplication(app, applicants) {
@@ -1554,6 +1590,7 @@ function renderApplication(app, applicants) {
       h("div", { class: "app-title" }, h("strong", {}, COUNTRY_LABEL[app.country] ?? "Страна не выбрана"), h("span", { class: "muted small" }, [`Сделка #${app.id}`, applicants.find((x) => x.id === app.applicant_id)?.last_name, app.portal ? PORTAL_LABEL[app.portal] : null].filter(Boolean).join(" · "))),
       statusSel,
     ),
+    stageBar(app, statusSel),
     locked,
     app.decision
       ? h(
@@ -2643,7 +2680,7 @@ function renderClient() {
                         h(
                           "button",
                           { class: "doc-open", onclick: () => previewFile(d.file_id, d.mime, d.original_name) },
-                          icon("file", 16),
+                          fileBadge(d.mime, d.original_name, "md"),
                           h("span", { class: "doc-text" }, h("span", { class: "doc-name" }, d.original_name), h("span", { class: "doc-where" }, [d.where, fmtDate(d.created_at, false)].filter(Boolean).join(" · "))),
                           h("span", { class: `tag tag-${d.doc_type}` }, DOC_LABEL[d.doc_type]),
                         ),
